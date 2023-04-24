@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "18e45982-bae3-4ddd-bbb4-8fc5b524576f",
+		"name": "zerologix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2908778"
+	},
+	"item": [
+		{
+			"name": "支付",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "price",
+							"value": "200",
+							"description": "元 100~1000",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "twd",
+							"description": "三個字元",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://zero.com/api/pay",
+					"protocol": "http",
+					"host": [
+						"zero",
+						"com"
+					],
+					"path": [
+						"api",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
