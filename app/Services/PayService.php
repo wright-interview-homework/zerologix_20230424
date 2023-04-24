@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Exception;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 class PayService
 {
@@ -49,12 +50,13 @@ class PayService
         $aBody = json_decode($oBody, true);
 
         // 正確時回傳 url
-        if (isset($aBody['status']) && $aBody['status'] == null) {
+        if (isset($aBody['status']) && $aBody['status'] == 'open') {
+            Log::info(json_encode($aBody));
             return $aBody['url'];
         }
 
         if (isset($aBody['error']['code'])) {
-            throw new Exception('支付服務錯誤錯誤訊息為：' . $aBody['error']['code']);
+            throw new Exception('支付服務錯誤錯誤訊息為：' . $aBody['error']['code'], 99999);
         }
     }
 }
